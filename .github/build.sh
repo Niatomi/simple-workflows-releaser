@@ -65,6 +65,9 @@ mkdir -p $OutDir
 touch $OutDir/hello.txt
 echo "meow meow" > $OutDir/hello.txt
 
-success "Bundle built"
+cp $cwd/python-project $OutDir/project
+cp $cwd/vue-project/dist $OutDir/frontend
 
+zip -rm $OutDir/build_$AppVersion *
+success "Bundle built"
 cd $cwd
