@@ -60,8 +60,8 @@ if [[ AppVersion != "" ]]; then
     AppSuffix="-v$AppVersion"
 fi
 
-cp -rm $cwd/python-project $OutDir/project
-cp -rm $cwd/vue-project/dist $OutDir/frontend
+cp -r $cwd/python-project $OutDir/project
+cp -r $cwd/vue-project/dist $OutDir/frontend
 
 cd $OutDir
 zip -rm $OutDir/build_$AppVersion.zip *
