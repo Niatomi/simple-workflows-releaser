@@ -34,7 +34,6 @@ info "Build Context: $cwd"
 
 info "Removing old binaries"
 
-rm -rf $cwd/dist
 
 success "Removed old binaries"
 
@@ -43,6 +42,7 @@ success "Removed old binaries"
 AppVersion=""
 OutDir=$cwd/dist
 
+rm -rf $OutDir
 mkdir -p $OutDir
 
 if [ -n "$VERSION" ]; then
@@ -63,10 +63,9 @@ fi
 mkdir -p $OutDir
 
 touch $OutDir/hello.txt
-echo "meow meow" > $OutDir/hello.txt
 
-cp $cwd/python-project $OutDir/project
-cp $cwd/vue-project/dist $OutDir/frontend
+cp -rm $cwd/python-project $OutDir/project
+cp -rm $cwd/vue-project/dist $OutDir/frontend
 
 zip -rm $OutDir/build_$AppVersion.zip $OutDir/*
 success "Bundle built"
