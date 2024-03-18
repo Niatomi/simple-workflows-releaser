@@ -68,6 +68,6 @@ echo "meow meow" > $OutDir/hello.txt
 cp $cwd/python-project $OutDir/project
 cp $cwd/vue-project/dist $OutDir/frontend
 
-zip -rm $OutDir/build_$AppVersion.zip *
+zip -rm $OutDir/build_$AppVersion.zip $OutDir/*
 success "Bundle built"
 cd $cwd
