@@ -1,5 +1,5 @@
 name: learn-github-actions
-run-name: ${{ github.actor }} is building ${{ steps.package.outputs.content }}
+run-name: ${{ github.actor }} is building new version
 on:
   push:
     paths:
