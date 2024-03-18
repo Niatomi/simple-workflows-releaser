@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is building new version
 on:
   push:
     paths:
-      - release.version
+      - .github/release.version
 permissions:
   contents: write
 jobs:
@@ -17,15 +17,14 @@ jobs:
         id: package
         uses: juliangruber/read-file-action@v1
         with:
-          path: ./release.version
+          path: ./.github/release.version
 
       - name: Echo release.version
         run: echo "New version is ${{ steps.package.outputs.content }}"
 
-      # - name: Build attachments
-      #   run: |
-      #     chmod +x build.sh
-      #     CROSS_BUILD=true APP_NAME=${{ env.APP_NAME }} VERSION=${{ needs.changelog.outputs.version }} build.sh
+      - name: Build attachments
+        run: |
+          chmod +x build.sh && VERSION=${{ steps.package.outputs.content }} build.sh
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
