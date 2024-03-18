@@ -5,7 +5,7 @@ on:
     paths:
       - release.version
 jobs:
-  check-bats-version:
+  build-release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
