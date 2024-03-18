@@ -8,21 +8,11 @@ jobs:
   build-release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v1
-
-      - name: Read file contents
-        id: read_file
-        uses: andstor/file-reader-action@v1
+      - name: Read release.version
+        id: package
+        uses: juliangruber/read-file-action@v1
         with:
-          path: "release.version"
+          path: ./package.json
 
-      - name: File contents
-        run: echo "New version is ${ steps.read_file.outputs.contents }"
-
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "14"
-      - run: npm install -g bats
-      - run: bats -v
+      - name: Echo release.version
+        run: echo "New version is ${{ steps.package.outputs.content }}"
