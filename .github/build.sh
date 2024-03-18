@@ -60,13 +60,11 @@ if [[ AppVersion != "" ]]; then
     AppSuffix="-v$AppVersion"
 fi
 
-mkdir -p $OutDir
-
-touch $OutDir/hello.txt
-
 cp -rm $cwd/python-project $OutDir/project
 cp -rm $cwd/vue-project/dist $OutDir/frontend
 
-zip -rm $OutDir/build_$AppVersion.zip $OutDir/*
+cd $OutDir
+zip -rm $OutDir/build_$AppVersion.zip *
 success "Bundle built"
+
 cd $cwd
