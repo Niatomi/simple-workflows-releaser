@@ -63,7 +63,7 @@ fi
 mkdir -p $OutDir
 
 touch $OutDir/hello.txt
-cat "meow meow" > $OutDir/hello.txt
+echo "meow meow" > $OutDir/hello.txt
 
 success "Bundle built"
 
