@@ -43,6 +43,8 @@ success "Removed old binaries"
 AppVersion=""
 OutDir=$cwd/dist
 
+mkdir -p $OutDir
+
 if [ -n "$VERSION" ]; then
     AppVersion="$VERSION"
 fi
@@ -60,7 +62,7 @@ fi
 
 mkdir -p $OutDir
 
-touch hello.txt
+touch $OutDir/hello.txt
 
 success "Bundle built"
 
