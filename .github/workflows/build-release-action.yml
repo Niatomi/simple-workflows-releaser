@@ -12,7 +12,7 @@ jobs:
         id: package
         uses: juliangruber/read-file-action@v1
         with:
-          path: ./package.json
+          path: ./release.version
 
       - name: Echo release.version
         run: echo "New version is ${{ steps.package.outputs.content }}"
